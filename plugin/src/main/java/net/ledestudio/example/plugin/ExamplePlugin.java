@@ -6,6 +6,7 @@ public class ExamplePlugin extends JavaPlugin {
 
     @Override
     public void onEnable() {
+
         super.onEnable();
     }
 
