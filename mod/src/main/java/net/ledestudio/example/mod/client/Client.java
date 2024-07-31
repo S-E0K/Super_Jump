@@ -1,6 +1,8 @@
 package net.ledestudio.example.mod.client;
 
 import io.netty.bootstrap.Bootstrap;
+import io.netty.buffer.ByteBuf;
+import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelOption;
 import io.netty.channel.EventLoopGroup;
@@ -11,8 +13,10 @@ import java.util.logging.Logger;
 
 public class Client {
 
-    private String host;
-    private int port;
+    private final String host;
+    private final int port;
+
+    private Channel channel;
 
     public Client(String host, int port) {
         this.host = host;
@@ -31,13 +35,20 @@ public class Client {
 
             // Start the client.
             ChannelFuture f = b.connect(host, port).sync(); // (5)
+            channel = f.channel();
 
-            Logger.getLogger("Network").info("common Client run");
+            Logger.getLogger("Network").info("Client Started");
 
             // Wait until the connection is closed.
 //            f.channel().closeFuture().sync();
         } finally {
 //            workerGroup.shutdownGracefully();
+        }
+    }
+
+    public void sendPacket(ByteBuf buf) {
+        if (channel != null && channel.isActive()) {
+            channel.writeAndFlush(buf);
         }
     }
 

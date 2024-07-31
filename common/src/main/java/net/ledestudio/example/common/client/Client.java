@@ -1,10 +1,8 @@
 package net.ledestudio.example.common.client;
 
 import io.netty.bootstrap.Bootstrap;
-import io.netty.channel.ChannelFuture;
-import io.netty.channel.ChannelInitializer;
-import io.netty.channel.ChannelOption;
-import io.netty.channel.EventLoopGroup;
+import io.netty.buffer.ByteBuf;
+import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
@@ -15,6 +13,8 @@ public class Client {
 
     private String host;
     private int port;
+
+    private Channel channel;
 
     public Client(String host, int port) {
         this.host = host;
@@ -40,6 +40,12 @@ public class Client {
 //            f.channel().closeFuture().sync();
         } finally {
 //            workerGroup.shutdownGracefully();
+        }
+    }
+
+    public void sendPacket(ByteBuf buf) {
+        if (channel != null && channel.isActive()) {
+            channel.writeAndFlush(buf);
         }
     }
 

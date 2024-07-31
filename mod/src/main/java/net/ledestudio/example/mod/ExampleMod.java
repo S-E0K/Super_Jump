@@ -2,6 +2,7 @@ package net.ledestudio.example.mod;
 
 
 import net.ledestudio.example.mod.client.Client;
+import net.ledestudio.example.mod.client.User;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -136,7 +137,11 @@ public class ExampleMod
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
 
             try {
-                new Client("localhost", 1234).run();
+                Client client = new Client("localhost", 1234);
+                client.run();
+
+                User user = new User("SE0K", 1);
+                client.sendPacket(user.toByteBuf()); // 1 36 15
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }

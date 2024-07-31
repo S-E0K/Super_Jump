@@ -1,7 +1,6 @@
 package net.ledestudio.example.plugin.command;
 
 import net.ledestudio.example.plugin.shoes.ShoesInterface;
-import net.ledestudio.example.plugin.shoes.ShoesItem;
 import net.ledestudio.example.plugin.shoes.ShoesManager;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.defaults.BukkitCommand;
@@ -19,7 +18,7 @@ public class Commands extends BukkitCommand {
 
         ShoesInterface shoesManager = new ShoesManager();
 
-        if (shoesManager.isShoes(player)) player.sendMessage("이미 가지고 있습니다");
+        if (shoesManager.hasShoes(player)) player.sendMessage("이미 가지고 있습니다");
         else shoesManager.setShoes(player);
 
         return false;

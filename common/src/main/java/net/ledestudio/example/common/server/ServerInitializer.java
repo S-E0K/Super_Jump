@@ -8,6 +8,6 @@ public class ServerInitializer extends ChannelInitializer<SocketChannel> {
 
     @Override
     protected void initChannel(@NotNull SocketChannel ch) throws Exception {
-        ch.pipeline().addLast(new DiscardInboundHandler());
+        ch.pipeline().addLast(new ServerInboundHandler());
     }
 }
