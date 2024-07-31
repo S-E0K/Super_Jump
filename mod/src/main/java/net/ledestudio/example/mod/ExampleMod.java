@@ -1,5 +1,7 @@
 package net.ledestudio.example.mod;
 
+
+import net.ledestudio.example.mod.client.Client;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -132,6 +134,12 @@ public class ExampleMod
             // Some client setup code
             LOGGER.info("HELLO FROM CLIENT SETUP");
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
+
+            try {
+                new Client("localhost", 1234).run();
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 }
