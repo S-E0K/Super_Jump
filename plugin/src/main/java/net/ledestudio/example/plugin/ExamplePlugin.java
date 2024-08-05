@@ -11,6 +11,7 @@ public class ExamplePlugin extends JavaPlugin {
     public void onEnable() {
         try {
             new Server(1234).run();
+
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

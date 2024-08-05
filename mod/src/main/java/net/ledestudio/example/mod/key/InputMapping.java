@@ -14,10 +14,4 @@ public class InputMapping {
             GLFW.GLFW_KEY_SPACE & GLFW.GLFW_KEY_LEFT_SHIFT, // ?????
             "key.categories.misc"
     ));
-    public static final Lazy<KeyMapping> Jumping = Lazy.of(() -> new KeyMapping(
-            "Jumping",
-            InputConstants.Type.KEYSYM,
-            GLFW.GLFW_KEY_SPACE,
-            "key.categories.misc"
-    ));
 }

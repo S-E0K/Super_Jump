@@ -1,8 +1,9 @@
 package net.ledestudio.example.mod;
 
 
+//import net.ledestudio.example.common.data.User;
 import net.ledestudio.example.mod.client.Client;
-import net.ledestudio.example.mod.client.User;
+import net.ledestudio.example.mod.data.User;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -42,6 +43,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 public class ExampleMod
 {
 //    public static ExampleMod instance;
+//    public static ExampleMod instance;
     // Define mod id in a common place for everything to reference
     public static final String MODID = "examplemod";
     // Directly reference a slf4j logger
@@ -75,6 +77,7 @@ public class ExampleMod
     // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
     public ExampleMod(IEventBus modEventBus, ModContainer modContainer)
     {
+//        instance = this;
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
@@ -141,7 +144,7 @@ public class ExampleMod
                 client.run();
 
                 User user = new User("SE0K", 1);
-                client.sendPacket(user.toByteBuf()); // 1 36 15
+                client.sendPacket(user.toByteBuf());
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }

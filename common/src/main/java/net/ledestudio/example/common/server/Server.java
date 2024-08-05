@@ -12,7 +12,7 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 import java.util.logging.Logger;
 
 public class Server {
-    private int port;
+    private final int port;
 
     public Server(int port) {
         this.port = port;
@@ -32,7 +32,7 @@ public class Server {
             // Bind and start to accept incoming connections.
             ChannelFuture f = b.bind(port).sync(); // (7)
 
-            Logger.getLogger("Network").info("common Server run");
+            Logger.getLogger("Network").info("Server Started");
 
             // Wait until the server socket is closed.
             // In this example, this does not happen, but you can do that to gracefully

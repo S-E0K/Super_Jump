@@ -17,6 +17,7 @@ public class Commands extends BukkitCommand {
         if (!(sender instanceof Player player)) return false;
 
         ShoesInterface shoesManager = new ShoesManager();
+        shoesManager.shoesAbility(player);
 
         if (shoesManager.hasShoes(player)) player.sendMessage("이미 가지고 있습니다");
         else shoesManager.setShoes(player);

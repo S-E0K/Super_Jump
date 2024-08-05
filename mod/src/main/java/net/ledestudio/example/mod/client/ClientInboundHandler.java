@@ -1,4 +1,4 @@
-package net.ledestudio.example.common.server;
+package net.ledestudio.example.mod.client;
 
 import com.google.common.collect.Maps;
 import io.netty.buffer.ByteBuf;
@@ -6,28 +6,25 @@ import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.util.ReferenceCountUtil;
-import net.ledestudio.example.common.data.User;
+//import net.ledestudio.example.common.data.User;
+import net.ledestudio.example.mod.data.User;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Map;
 import java.util.logging.Logger;
 
-public class ServerInboundHandler extends ChannelInboundHandlerAdapter {
+public class ClientInboundHandler extends ChannelInboundHandlerAdapter {
 
     private static final Map<String, Channel> channels = Maps.newConcurrentMap();
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        Logger.getLogger("Network").info("Channel Active");
+        Logger.getLogger("Network").info("Mod Channel Active");
 
-        ctx.channel();// value
-        ctx.channel().remoteAddress().toString();// key
+        ctx.channel();
+        ctx.channel().remoteAddress().toString();
 
-    }
 
-    @Override
-    public void channelInactive(ChannelHandlerContext ctx) throws Exception {
-        super.channelInactive(ctx);
     }
 
     @Override
@@ -38,7 +35,7 @@ public class ServerInboundHandler extends ChannelInboundHandlerAdapter {
             final int id = buf.readInt();
             if (id == 1) {
                 User user = new User(buf);
-                Logger.getLogger("NetWork").info(user.toString());
+                Logger.getLogger("NetWork Client add text").info(user.toString());
             }
 
         } finally {
