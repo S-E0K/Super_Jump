@@ -14,17 +14,17 @@ public class ShoesManager implements ShoesInterface{
     @Override
     public void shoesAbility(Player player) {
 
-        player.setVelocity(new Vector(0, 3, 0));
+        player.setVelocity(new Vector(0, 1, 0));
 
     }
 
     @Override
     public boolean hasShoes(Player player) {
-        return isShoes(player) || player.getInventory().contains(shoes.getShoes());
+        return wearShoes(player) || player.getInventory().contains(shoes.getShoes());
     }
 
     @Override
-    public boolean isShoes(Player player) {
+    public boolean wearShoes(Player player) {
         return Objects.equals(player.getInventory().getBoots(), shoes.getShoes());
     }
 

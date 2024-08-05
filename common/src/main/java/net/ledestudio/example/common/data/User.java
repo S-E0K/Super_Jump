@@ -30,9 +30,18 @@ public class User {
         buf.writeInt(ID);
 
         byte[] nameArr = name.getBytes(StandardCharsets.UTF_8);
+        buf.writeInt(nameArr.length);
         buf.writeBytes(nameArr);
         buf.writeInt(level);
         return buf;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "name= '" + name + '\'' +
+                ", level = " + level +
+                '}';
     }
 
 }

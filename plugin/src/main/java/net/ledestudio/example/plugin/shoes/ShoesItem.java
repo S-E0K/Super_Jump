@@ -11,6 +11,7 @@ public class ShoesItem {
         shoes = new ItemStack(material);
         ItemMeta meta = shoes.getItemMeta();
         meta.setDisplayName(name);
+        meta.setUnbreakable(true);
         shoes.setItemMeta(meta);
     }
     public ItemStack getShoes() {

@@ -2,7 +2,7 @@ package net.ledestudio.example.mod;
 
 
 import net.ledestudio.example.mod.client.Client;
-import net.ledestudio.example.mod.client.User;
+import net.ledestudio.example.mod.data.User;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;

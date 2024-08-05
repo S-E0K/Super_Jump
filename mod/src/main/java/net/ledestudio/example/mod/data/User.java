@@ -1,4 +1,4 @@
-package net.ledestudio.example.mod.client;
+package net.ledestudio.example.mod.data;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
@@ -30,6 +30,7 @@ public class User {
         buf.writeInt(ID);
 
         byte[] nameArr = name.getBytes(StandardCharsets.UTF_8);
+        buf.writeInt(nameArr.length);
         buf.writeBytes(nameArr);
         buf.writeInt(level);
         return buf;
