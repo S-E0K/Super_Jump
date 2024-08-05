@@ -1,11 +1,7 @@
 package net.ledestudio.example.mod.key;
 
-
-import net.ledestudio.example.mod.client.Client;
-import net.ledestudio.example.mod.data.User;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.entity.player.Player;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -67,24 +63,5 @@ public class InputEventListener {
     }
 }
 
-
-//    public static boolean canJumping = false;
-//    static Integer count = 0;
-//
-//    @SubscribeEvent(priority = EventPriority.HIGHEST)
-//    public static void onClientTick(ClientTickEvent.Post event) {
-//
-//        while (InputMapping.SuperJump.get().consumeClick()) {
-//
-//            count++; // 1초에 30 올라감
-//            LOGGER.info(count.toString());
-//            if (count >= 90) {
-//                canJumping = true;
-//
-//                break;
-//            }
-//        }
-//    }
-//}
 
 
