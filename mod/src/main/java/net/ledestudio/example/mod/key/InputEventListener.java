@@ -28,6 +28,7 @@ public class InputEventListener {
         Minecraft mc = Minecraft.getInstance();
 
 //        Player player = mc.player;
+
         while (InputMapping.SuperJump.get().consumeClick() && count < 100) {
             isDown = true;
             count++; // 1초에 30 올라감
