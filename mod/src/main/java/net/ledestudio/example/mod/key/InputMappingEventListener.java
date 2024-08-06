@@ -14,6 +14,6 @@ public class InputMappingEventListener {
 
     @SubscribeEvent(priority = EventPriority.HIGHEST)
     public static void registerBindings(RegisterKeyMappingsEvent event) {
-        event.register(InputMapping.SuperJump.get());
+        event.register(InputMapping.JumpGage.get());
     }
 }
