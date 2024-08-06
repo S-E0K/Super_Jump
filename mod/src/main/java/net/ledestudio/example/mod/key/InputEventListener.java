@@ -23,7 +23,7 @@ public class InputEventListener {
 
         Minecraft mc = Minecraft.getInstance();
 
-//        Player player = mc.player;
+//        Player player = mc.player;       얘 주석처리 하니까 작동은 해요...
 
         while (InputMapping.SuperJump.get().consumeClick() && count < 100) {
             isDown = true;
@@ -56,6 +56,10 @@ public class InputEventListener {
     }
 
     private static void showTitle(Minecraft mc, String title, String subTitle) {
+        /*
+        문제점: showTitle을 만들었을 때 밑줄 쳐진 부분을 확인했는데 언어 레벨인가? 업그레이든가 뭔가 한다길래 눌렀더니 서브타이틀의 count + "%" 이거도 밑줄쳐지고
+        클라이언트도 켜지지 않아서 이것저것 하다보니 Player를 주석처리 하니까 작동하게 됩니다 진짜 왜 이렇게 된건지 모르겠지만 아무튼 작동은 해요...
+         */
         if (mc.player != null) {
             mc.gui.setTitle(Component.literal(title));
             mc.gui.setSubtitle(Component.literal(subTitle));
