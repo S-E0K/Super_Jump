@@ -13,6 +13,8 @@ import java.util.logging.Logger;
 
 public class Client {
 
+    public static Client client = new Client("localhost", 1234);
+
     private final String host;
     private final int port;
 
@@ -51,5 +53,4 @@ public class Client {
             channel.writeAndFlush(buf);
         }
     }
-
 }

@@ -1,18 +1,20 @@
 package net.ledestudio.example.common.server;
 
 import io.netty.bootstrap.ServerBootstrap;
-import io.netty.channel.ChannelFuture;
-import io.netty.channel.ChannelInitializer;
-import io.netty.channel.ChannelOption;
-import io.netty.channel.EventLoopGroup;
+import io.netty.buffer.ByteBuf;
+import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
-import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 
 import java.util.logging.Logger;
 
 public class Server {
+
+//    public static Server server = new Server(1234);
+
     private final int port;
+
+    private Channel channel;
 
     public Server(int port) {
         this.port = port;
@@ -31,6 +33,7 @@ public class Server {
 
             // Bind and start to accept incoming connections.
             ChannelFuture f = b.bind(port).sync(); // (7)
+            channel = f.channel();
 
             Logger.getLogger("Network").info("Server Started");
 
@@ -43,4 +46,11 @@ public class Server {
 //            bossGroup.shutdownGracefully();
         }
     }
+
+    public void sendPacket(ByteBuf buf) {
+        if (channel != null && channel.isActive()) {
+            channel.writeAndFlush(buf);
+        }
+    }
+
 }

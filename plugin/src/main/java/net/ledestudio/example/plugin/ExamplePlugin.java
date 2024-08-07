@@ -7,10 +7,15 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class ExamplePlugin extends JavaPlugin {
 
+    public static ExamplePlugin instance;
+    public static Server server = new Server(1234);
+
     @Override
     public void onEnable() {
+
+        instance = this;
         try {
-            new Server(1234).run();
+            server.run();
 
         } catch (Exception e) {
             throw new RuntimeException(e);

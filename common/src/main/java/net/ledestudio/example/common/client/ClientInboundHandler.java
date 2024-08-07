@@ -1,4 +1,4 @@
-package net.ledestudio.example.mod.client;
+package net.ledestudio.example.common.client;
 
 import com.google.common.collect.Maps;
 import io.netty.buffer.ByteBuf;
@@ -6,14 +6,13 @@ import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.util.ReferenceCountUtil;
-//import net.ledestudio.example.common.data.User;
-import net.ledestudio.example.mod.data.User;
+import net.ledestudio.example.common.data.User;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Map;
 import java.util.logging.Logger;
 
-public class ClientInboundHandler extends ChannelInboundHandlerAdapter {
+public class  ClientInboundHandler extends ChannelInboundHandlerAdapter {
 
     private static final Map<String, Channel> channels = Maps.newConcurrentMap();
 
@@ -23,6 +22,7 @@ public class ClientInboundHandler extends ChannelInboundHandlerAdapter {
 
         ctx.channel();
         ctx.channel().remoteAddress().toString();
+
 
     }
 

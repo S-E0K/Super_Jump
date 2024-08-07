@@ -1,8 +1,6 @@
 package net.ledestudio.example.mod;
 
-
-//import net.ledestudio.example.common.data.User;
-import net.ledestudio.example.mod.client.Client;
+//import net.ledestudio.example.mod.client.Client;
 import net.ledestudio.example.mod.data.User;
 import org.slf4j.Logger;
 
@@ -38,10 +36,15 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
+import static net.ledestudio.example.mod.client.Client.client;
+
+//import static net.ledestudio.example.common.client.Client.client;
+
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(ExampleMod.MODID)
 public class ExampleMod
 {
+
 //    public static ExampleMod instance;
 //    public static ExampleMod instance;
     // Define mod id in a common place for everything to reference
@@ -140,7 +143,6 @@ public class ExampleMod
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
 
             try {
-                Client client = new Client("localhost", 1234);
                 client.run();
 
                 User user = new User("SE0K", 1);

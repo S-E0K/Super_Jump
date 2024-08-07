@@ -4,12 +4,14 @@ import io.netty.bootstrap.Bootstrap;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
-import io.netty.channel.socket.SocketChannel;
+//import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 
 import java.util.logging.Logger;
 
 public class Client {
+
+//    public static Client client = new Client("localhost", 1234);
 
     private final String host;
     private final int port;

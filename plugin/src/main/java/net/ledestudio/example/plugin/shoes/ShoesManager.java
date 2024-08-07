@@ -13,9 +13,7 @@ public class ShoesManager implements ShoesInterface{
 
     @Override
     public void shoesAbility(Player player) {
-
         player.setVelocity(new Vector(0, 1, 0));
-
     }
 
     @Override
